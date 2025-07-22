@@ -2,7 +2,7 @@
 
 A fast, responsive, and offline-first web application designed as a quick reference tool for paramedic medication protocols. This guide is based on the Saskatchewan College of Paramedics (SCoP) standards.
 
-![Paramedic Field Guide Screenshot](https://imgur.com/a/VwJGuzE)
+[Paramedic Field Guide Screenshot](https://imgur.com/a/VwJGuzE)
 _**Note:** You should replace the image URL above with a real screenshot of your application._
 
 ---
