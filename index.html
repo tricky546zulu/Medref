@@ -53,12 +53,6 @@
         
         body { min-height: 100dvh; }
         
-        /* FIX: Force word break on long strings to prevent horizontal scroll on mobile */
-        p, li, div, summary {
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
         .sticky-header {
             position: sticky;
             top: 0;
@@ -95,11 +89,11 @@
     
     <!-- Header -->
     <header class="sticky-header bg-background-light/90 dark:bg-background-dark/90 border-b border-gray-200 dark:border-gray-800/50">
-        <div class="flex items-center p-4 pb-2 justify-between">
+        <div class="flex items-center p-4 pb-2 justify-between gap-2">
             <div class="flex size-12 shrink-0 items-center justify-start text-primary">
                 <span class="material-symbols-outlined text-3xl">medical_services</span>
             </div>
-            <h1 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Paramedic Field Guide</h1>
+            <h1 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center truncate">Paramedic Field Guide</h1>
             <div class="flex w-12 items-center justify-end">
                 <!-- Optional Action Button (could be Favorites in future) -->
                 <button class="flex items-center justify-center rounded-lg h-12 w-12 text-gray-400 hover:text-primary transition-colors">
@@ -149,7 +143,7 @@
 
     <!-- Legal Disclaimer -->
     <div class="px-4 py-6 mt-8">
-        <div class="p-4 rounded-xl border border-warning/50 bg-warning/10 text-xs text-gray-700 dark:text-gray-300 shadow-md">
+        <div class="p-4 rounded-xl border border-warning/50 bg-warning/10 text-xs text-gray-700 dark:text-gray-300 shadow-md break-words">
             <strong class="text-warning block mb-1">LEGAL DISCLAIMER (READ CAREFULLY)</strong>
             <p>This resource is provided for quick reference and educational purposes only. It is **not a substitute** for official medical control, current provincial/state protocols, or professional clinical judgment.</p>
             <p class="mt-2">Users assume all responsibility for verifying dosages, indications, and clinical appropriateness before administering any medication or treatment. Always follow your local Medical Director's standing orders and current protocols.</p>
@@ -218,7 +212,7 @@
             </button>
         </div>
         <div class="p-6 overflow-y-auto">
-            <ul id="generalInstructionsList" class="space-y-4 text-sm text-gray-600 dark:text-gray-300">
+            <ul id="generalInstructionsList" class="space-y-4 text-sm text-gray-600 dark:text-gray-300 break-words">
                 <!-- Populated by JS -->
             </ul>
         </div>
@@ -327,7 +321,7 @@
         { name: 'Salbutamol (Ventolin)', indications: 'Severe bronchospasm, hyperkalemia', contraindications: 'Hypersensitivity, tachyarrhythmias', dosing: { 'Adult - Nebulized': '2.5 to 5.0 mg, may repeat PRN.', 'Adult - MDI': '10 puffs (100mcg/puff). (max 30 puffs)', 'Hyperkalemia': '10 to 20 mg via nebulizer over 10 min.', 'Pediatric - Nebulized': '1.25 to 2.5 mg, may repeat PRN.', 'Pediatric - MDI (>20kg)': '10 puffs.', 'Pediatric - MDI (<20kg)': '5 puffs.' }, route: 'PCP/ICP/ACP: Nebulized/MDI/ETT.' },
         { name: 'Sodium Bicarbonate', alert: 'HIGH ALERT', indications: 'Known TCA overdose or hyperkalemia with QRS widening, hyperkalemic cardiac arrest', contraindications: 'Metabolic or respiratory alkalosis, hypocalcemia', dosing: { 'Hyperkalemic Cardiac Arrest': '1 mEq/kg IVP.', 'TCA / Sodium Channel Blocker OD': 'Contact PADIS. 1-2 mEq/kg IV over 1-2 min, repeat q10 min until QRS narrows.' }, route: 'ACP: IV/IO.' },
         { name: 'Thiamine', indications: 'Hypoglycemic patients who received D50W and appear malnourished', contraindications: 'Hypersensitivity', dosing: { 'Adult': '100 mg IV push over 1 minute.' }, route: 'ACP: IM/IV/IO.' },
-        { name: 'Tranexamic Acid (TXA)', alert: 'HIGH ALERT', indications: 'Trauma-associated hemorrhage, postpartum hemorrhage', contraindications: 'Hypersensitivity, active intravascular clotting, subarachnid hemorrhage', dosing: { 'Trauma / PPH': '2 g in 100 mL NS infused IV over 20 minutes.' }, route: 'ACP: IV/IO.', smartPump: [{ title: 'Infusion (for Trauma OR Post-partum severe hemorrhage)', preparation: [ '<strong>Remove 20 mL from the 100 mL bag before adding TXA</strong>.', '<strong>Add 2 g TXA to the 100 mL bag then prime the pump set</strong>.' ], pumpSelection: 'Use the keypad to select <strong>Tranexamic Acid _mg/_mL</strong>.', setup: [ 'Enter <strong>concentration 2000 mg</strong>.', 'Enter <strong>volume 100 mL</strong>.', 'Enter <strong>Duration 20 min</strong>.', 'Enter <strong>VTBI 100 mL</strong>.', 'Push <strong>Start – Select Yes</strong>.' ], flush: 'Flush line with 20 mL NS at the same rate once infusion is complete.' }] },
+        { name: 'Tranexamic Acid (TXA)', alert: 'HIGH ALERT', indications: 'Trauma-associated hemorrhage, postpartum hemorrhage', contraindications: 'Hypersensitivity, active intravascular clotting, subarachnoid hemorrhage', dosing: { 'Trauma / PPH': '2 g in 100 mL NS infused IV over 20 minutes.' }, route: 'ACP: IV/IO.', smartPump: [{ title: 'Infusion (for Trauma OR Post-partum severe hemorrhage)', preparation: [ '<strong>Remove 20 mL from the 100 mL bag before adding TXA</strong>.', '<strong>Add 2 g TXA to the 100 mL bag then prime the pump set</strong>.' ], pumpSelection: 'Use the keypad to select <strong>Tranexamic Acid _mg/_mL</strong>.', setup: [ 'Enter <strong>concentration 2000 mg</strong>.', 'Enter <strong>volume 100 mL</strong>.', 'Enter <strong>Duration 20 min</strong>.', 'Enter <strong>VTBI 100 mL</strong>.', 'Push <strong>Start – Select Yes</strong>.' ], flush: 'Flush line with 20 mL NS at the same rate once infusion is complete.' }] },
     ];
 
     // --- DOM ELEMENTS ---
@@ -389,14 +383,13 @@
             <div class="grid gap-4">`;
         
         pumpInfo.forEach(scenario => {
-            html += `<div class="bg-gray-50 dark:bg-background-dark/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700">`;
+            html += `<div class="bg-gray-50 dark:bg-background-dark/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700 break-words">`;
             html += `<h6 class="font-bold text-text-dark dark:text-text-light mb-2">${scenario.title}</h6>`;
 
-            // Function to handle lists/text and ensure proper styling
-            const createList = (items) => Array.isArray(items) ? `<ul class="list-disc list-inside space-y-1 ml-1 text-sm">${items.map(i => `<li>${i}</li>`).join('')}</ul>` : `<p class="text-sm">${items}</p>`;
+            const createList = (items) => Array.isArray(items) ? `<ul class="list-disc list-inside space-y-1 ml-1 text-sm break-words">${items.map(i => `<li>${i}</li>`).join('')}</ul>` : `<p class="text-sm break-words">${items}</p>`;
             
-            if(scenario.applicability) html += `<p class="text-xs italic text-gray-500 mb-2">${scenario.applicability}</p>`;
-            if(scenario.advisory) html += `<div class="my-2 p-2 text-xs bg-warning/10 text-warning rounded border border-warning/20 flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">warning</span><span>${scenario.advisory}</span></div>`;
+            if(scenario.applicability) html += `<p class="text-xs italic text-gray-500 mb-2 break-words">${scenario.applicability}</p>`;
+            if(scenario.advisory) html += `<div class="my-2 p-2 text-xs bg-warning/10 text-warning rounded border border-warning/20 flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">warning</span><span class="break-words">${scenario.advisory}</span></div>`;
             
             // Grid for details
             html += `<div class="space-y-3 text-sm text-gray-600 dark:text-gray-300 mt-3">`;
@@ -404,21 +397,21 @@
             if(scenario.preparation) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Preparation</span>${createList(scenario.preparation)}</div>`;
             if(scenario.pumpSelection) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Selection</span>${createList(scenario.pumpSelection)}</div>`;
             if(scenario.setup) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Setup</span>${createList(scenario.setup)}</div>`;
-            if(scenario.titration) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Titration</span><p class="mb-1 text-sm">${scenario.titration.instruction}</p>${createList(scenario.titration.steps)}</div>`;
-            if(scenario.flush) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Flush Protocol</span><p class="text-sm">${scenario.flush}</p></div>`;
+            if(scenario.titration) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Titration</span><p class="mb-1 text-sm break-words">${scenario.titration.instruction}</p>${createList(scenario.titration.steps)}</div>`;
+            if(scenario.flush) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Flush Protocol</span><p class="text-sm break-words">${scenario.flush}</p></div>`;
             
             if(scenario.pedsChart) {
-                html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Pediatric Chart</span><div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-1 text-xs">`;
+                html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Pediatric Chart</span><div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-1 text-xs">`;
                 for(const [key, value] of Object.entries(scenario.pedsChart)) {
-                    html += `<div class="bg-white dark:bg-component-dark p-1 rounded border border-gray-100 dark:border-gray-700"><strong>${key}:</strong> ${value}</div>`;
+                    html += `<div class="bg-white dark:bg-component-dark p-1 rounded border border-gray-100 dark:border-gray-700 break-words"><strong>${key}:</strong> ${value}</div>`;
                 }
                 html += `</div></div>`;
             }
             
-            if(scenario.importantNote) html += `<div class="my-2 p-3 text-xs bg-warning/10 text-warning rounded border border-warning/20 flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">priority_high</span><span>${scenario.importantNote}</span></div>`;
-            if(scenario.notes) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Notes</span><p class="text-sm">${scenario.notes}</p></div>`;
-            if(scenario.monitoring) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Monitoring</span><p class="text-sm">${scenario.monitoring}</p></div>`;
-            if(scenario.resourceNote) html += `<p class="text-xs italic text-gray-500 mt-2">${scenario.resourceNote}</p>`;
+            if(scenario.importantNote) html += `<div class="my-2 p-3 text-xs bg-warning/10 text-warning rounded border border-warning/20 flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">priority_high</span><span class="break-words">${scenario.importantNote}</span></div>`;
+            if(scenario.notes) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Notes</span><p class="text-sm break-words">${scenario.notes}</p></div>`;
+            if(scenario.monitoring) html += `<div><span class="block text-xs font-bold text-gray-400 uppercase">Monitoring</span><p class="text-sm break-words">${scenario.monitoring}</p></div>`;
+            if(scenario.resourceNote) html += `<p class="text-xs italic text-gray-500 mt-2 break-words">${scenario.resourceNote}</p>`;
             
             html += `</div></div>`;
         });
@@ -437,18 +430,18 @@
             med.contraindications.forEach(c => {
                 contraHtml += `<li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
                     <span class="material-symbols-outlined text-warning text-lg shrink-0">block</span>
-                    <span>${c}</span>
+                    <span class="break-words">${c}</span>
                 </li>`;
             });
             contraHtml += '</ul>';
         } else {
-            contraHtml = `<p class="text-sm text-gray-600 dark:text-gray-400">${med.contraindications}</p>`;
+            contraHtml = `<p class="text-sm text-gray-600 dark:text-gray-400 break-words">${med.contraindications}</p>`;
         }
 
         // --- Dosing Logic ---
         let dosingHtml = '<div class="space-y-3">';
         for (const [indication, dose] of Object.entries(med.dosing)) {
-            dosingHtml += `<div class="text-sm"><span class="block font-bold text-text-dark dark:text-text-light">${indication}</span><span class="text-gray-600 dark:text-gray-400">${dose}</span></div>`;
+            dosingHtml += `<div class="text-sm"><span class="block font-bold text-text-dark dark:text-text-light">${indication}</span><span class="text-gray-600 dark:text-gray-400 break-words">${dose}</span></div>`;
         }
         dosingHtml += '</div>';
 
@@ -456,16 +449,16 @@
 
         details.innerHTML = `
             <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 select-none">
-                <div class="flex flex-col">
-                    <p class="text-lg font-bold text-text-dark dark:text-text-light group-open:text-primary transition-colors">${med.name}</p>
-                    <div class="flex items-center gap-2 mt-1">
+                <div class="flex flex-col flex-1 min-w-0">
+                    <p class="text-lg font-bold text-text-dark dark:text-text-light group-open:text-primary transition-colors break-words">${med.name}</p>
+                    <div class="flex items-center gap-2 mt-1 flex-wrap">
                         <span class="text-xs font-medium text-gray-400 uppercase tracking-wide bg-gray-100 dark:bg-background-dark px-2 py-0.5 rounded">
                             ${med.smartPump ? 'Infusion' : 'Medication'}
                         </span>
                           ${med.alert ? `<span class="text-[10px] font-bold text-warning border border-warning/30 px-2 py-0.5 rounded uppercase">${med.alert}</span>` : ''}
                     </div>
                 </div>
-                <span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                <span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
             </summary>
             
             <div class="pb-6 pt-2 border-t border-gray-100 dark:border-gray-700/50 space-y-5 animate-fadeIn">
@@ -473,16 +466,16 @@
                 <!-- Indications -->
                 <div>
                     <div class="flex items-center gap-2 mb-1 text-success">
-                        <span class="material-symbols-outlined text-lg">check_circle</span>
+                        <span class="material-symbols-outlined text-lg shrink-0">check_circle</span>
                         <h4 class="font-bold text-sm uppercase">Indications</h4>
                     </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 pl-7">${med.indications}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 pl-7 break-words">${med.indications}</p>
                 </div>
 
                 <!-- Contraindications -->
                 <div>
                     <div class="flex items-center gap-2 mb-1 text-warning">
-                        <span class="material-symbols-outlined text-lg">cancel</span>
+                        <span class="material-symbols-outlined text-lg shrink-0">cancel</span>
                         <h4 class="font-bold text-sm uppercase">Contraindications</h4>
                     </div>
                     <div class="pl-7">${contraHtml}</div>
@@ -491,16 +484,16 @@
                 <!-- Route -->
                 <div>
                     <div class="flex items-center gap-2 mb-1 text-primary">
-                        <span class="material-symbols-outlined text-lg">alt_route</span>
+                        <span class="material-symbols-outlined text-lg shrink-0">alt_route</span>
                         <h4 class="font-bold text-sm uppercase">Route & Scope</h4>
                     </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 pl-7">${med.route}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 pl-7 break-words">${med.route}</p>
                 </div>
 
                 <!-- Dosing -->
                 <div class="bg-background-light dark:bg-background-dark p-4 rounded-xl border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center gap-2 mb-3 text-text-dark dark:text-text-light">
-                        <span class="material-symbols-outlined text-lg text-primary">vaccines</span>
+                        <span class="material-symbols-outlined text-lg text-primary shrink-0">vaccines</span>
                         <h4 class="font-bold text-sm uppercase">Dosing</h4>
                     </div>
                     ${dosingHtml}
