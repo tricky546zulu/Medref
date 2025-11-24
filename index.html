@@ -53,6 +53,12 @@
         
         body { min-height: 100dvh; }
         
+        /* FIX: Force word break on long strings to prevent horizontal scroll on mobile */
+        p, li, div, summary {
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
         .sticky-header {
             position: sticky;
             top: 0;
@@ -321,7 +327,7 @@
         { name: 'Salbutamol (Ventolin)', indications: 'Severe bronchospasm, hyperkalemia', contraindications: 'Hypersensitivity, tachyarrhythmias', dosing: { 'Adult - Nebulized': '2.5 to 5.0 mg, may repeat PRN.', 'Adult - MDI': '10 puffs (100mcg/puff). (max 30 puffs)', 'Hyperkalemia': '10 to 20 mg via nebulizer over 10 min.', 'Pediatric - Nebulized': '1.25 to 2.5 mg, may repeat PRN.', 'Pediatric - MDI (>20kg)': '10 puffs.', 'Pediatric - MDI (<20kg)': '5 puffs.' }, route: 'PCP/ICP/ACP: Nebulized/MDI/ETT.' },
         { name: 'Sodium Bicarbonate', alert: 'HIGH ALERT', indications: 'Known TCA overdose or hyperkalemia with QRS widening, hyperkalemic cardiac arrest', contraindications: 'Metabolic or respiratory alkalosis, hypocalcemia', dosing: { 'Hyperkalemic Cardiac Arrest': '1 mEq/kg IVP.', 'TCA / Sodium Channel Blocker OD': 'Contact PADIS. 1-2 mEq/kg IV over 1-2 min, repeat q10 min until QRS narrows.' }, route: 'ACP: IV/IO.' },
         { name: 'Thiamine', indications: 'Hypoglycemic patients who received D50W and appear malnourished', contraindications: 'Hypersensitivity', dosing: { 'Adult': '100 mg IV push over 1 minute.' }, route: 'ACP: IM/IV/IO.' },
-        { name: 'Tranexamic Acid (TXA)', alert: 'HIGH ALERT', indications: 'Trauma-associated hemorrhage, postpartum hemorrhage', contraindications: 'Hypersensitivity, active intravascular clotting, subarachnoid hemorrhage', dosing: { 'Trauma / PPH': '2 g in 100 mL NS infused IV over 20 minutes.' }, route: 'ACP: IV/IO.', smartPump: [{ title: 'Infusion (for Trauma OR Post-partum severe hemorrhage)', preparation: [ '<strong>Remove 20 mL from the 100 mL bag before adding TXA</strong>.', '<strong>Add 2 g TXA to the 100 mL bag then prime the pump set</strong>.' ], pumpSelection: 'Use the keypad to select <strong>Tranexamic Acid _mg/_mL</strong>.', setup: [ 'Enter <strong>concentration 2000 mg</strong>.', 'Enter <strong>volume 100 mL</strong>.', 'Enter <strong>Duration 20 min</strong>.', 'Enter <strong>VTBI 100 mL</strong>.', 'Push <strong>Start – Select Yes</strong>.' ], flush: 'Flush line with 20 mL NS at the same rate once infusion is complete.' }] },
+        { name: 'Tranexamic Acid (TXA)', alert: 'HIGH ALERT', indications: 'Trauma-associated hemorrhage, postpartum hemorrhage', contraindications: 'Hypersensitivity, active intravascular clotting, subarachnid hemorrhage', dosing: { 'Trauma / PPH': '2 g in 100 mL NS infused IV over 20 minutes.' }, route: 'ACP: IV/IO.', smartPump: [{ title: 'Infusion (for Trauma OR Post-partum severe hemorrhage)', preparation: [ '<strong>Remove 20 mL from the 100 mL bag before adding TXA</strong>.', '<strong>Add 2 g TXA to the 100 mL bag then prime the pump set</strong>.' ], pumpSelection: 'Use the keypad to select <strong>Tranexamic Acid _mg/_mL</strong>.', setup: [ 'Enter <strong>concentration 2000 mg</strong>.', 'Enter <strong>volume 100 mL</strong>.', 'Enter <strong>Duration 20 min</strong>.', 'Enter <strong>VTBI 100 mL</strong>.', 'Push <strong>Start – Select Yes</strong>.' ], flush: 'Flush line with 20 mL NS at the same rate once infusion is complete.' }] },
     ];
 
     // --- DOM ELEMENTS ---
